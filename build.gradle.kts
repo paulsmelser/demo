@@ -34,6 +34,12 @@ tasks.withType<KotlinCompile> {
     }
 }
 
+tasks.register<Copy>("copyJar") {
+    from(layout.buildDirectory.file("build/libs/demo-0.0.1-SNAPSHOT.jar"))
+    into(layout.buildDirectory.dir("jar"))
+}
+
+
 tasks.withType<Test> {
     useJUnitPlatform()
 }
